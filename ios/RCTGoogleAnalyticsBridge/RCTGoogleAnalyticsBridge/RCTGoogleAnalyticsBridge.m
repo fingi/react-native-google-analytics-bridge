@@ -1,7 +1,7 @@
 #import "RCTGoogleAnalyticsBridge.h"
-#import <React/RCTLog.h>
-#import <React/RCTConvert.h>
-#import <React/RCTUtils.h>
+#import "RCTLog.h"
+#import "RCTConvert.h"
+#import "RCTUtils.h"
 #import "GAI.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
@@ -267,16 +267,6 @@ RCT_EXPORT_METHOD(setClient:(NSString *)trackerId clientId:(NSString *)clientId)
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:trackerId];
     [tracker set:kGAIClientId
            value:clientId];
-}
-
-RCT_EXPORT_METHOD(getClientId:(NSString *)trackerId resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
-{
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:trackerId];
-    NSString *clientId = [tracker get:kGAIClientId];
-    if (clientId != NULL)
-        resolve(clientId);
-    else
-        reject(@"CLIENTID_FAILED", nil, RCTErrorWithMessage(@"Unable to fetch client id"));
 }
 
 RCT_EXPORT_METHOD(allowIDFA:(NSString *)trackerId enabled:(BOOL)enabled)

@@ -1,8 +1,8 @@
-#import <React/RCTBridgeModule.h>
+#import "RCTBridgeModule.h"
 #import "TAGContainer.h"
 #import "TagContainerOpener.h"
 #import "TAGManager.h"
-#import <React/RCTUtils.h>
+#import "RCTUtils.h"
 
 @interface RCTGoogleTagManagerBridge : NSObject <RCTBridgeModule>
 
